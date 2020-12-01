@@ -1,0 +1,389 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Cumulative
+servers:
+ - url: www.CUsports.com
+paths:
+    "/price":
+        get:
+            summary: Get Price
+            description: Details about the price of the product
+            parameters:
+              - name: productID
+                description: product ID
+                required: true
+                schema:
+                    type: integer
+                in: query
+            responses:
+                '200':
+                    description: Success - price was retrieved
+                    content:
+                        application/json:
+                            schema:
+                              $ref: '#/components/schemas/MultiplePriceReturn'
+                '400':
+                    description: Failure - ID not found
+                    content:
+                        application:
+                            schema:
+                                $ref: '#/components/schema/Error'
+    "/price/{productID}":
+        get:
+            summary: Get Price of a Singular Product
+            description: details about the price of the product
+            parameters:
+                - name: productID
+                  required: true
+                  schema:
+                    type: integer
+                  in: query
+            responses:
+              '200': 
+                description: Success - price was retrieved
+                content:
+                    application/json:
+                        schema:
+                          $ref: '#/components/schemas/PriceReturn'
+              '400':
+                    description: Failure - ID not found
+                    content:
+                        application:
+                            schema:
+                                $ref: '#/components/schema/Error'
+    /orderPayment:
+      post:
+        summary: Simulate calculating price for an order
+        operationId: processOrder
+        tags:
+          - orderPrice
+        parameters: 
+            - name: userID
+              in: query
+              description: the userID associated with the user and their affects (including cart)
+              required: true
+              schema:
+                type: integer
+                format: int32
+            - name: ShippingAddr
+              in: query
+              description: The shipping address for the user's cart
+              required: true
+              schema:
+                type: string
+        responses: 
+            '200':
+              description: Success - order was processed
+              content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Success'
+            default:
+              description: Unexpected error
+              content: 
+                application/json:
+                    schema:
+                      $ref: '#/components/schemas/Error'
+    /orderTax:
+      get:
+        summary: Get the tax on an order
+        operationId: GetOrderTax
+        tags:
+          - orderTax
+        parameters:
+            - name: OrderCost
+              in: query
+              description: the cost of a users order before tax
+              required: true
+              schema:
+                type: number
+            - name: ShippingAddr
+              in: query
+              description: the address to ship an order to
+              required: true
+              schema:
+                type: string
+        responses:
+            '200':
+              description: Success - Tax calculated
+              content:
+                application/json:
+                    schema:
+                      $ref: '#/components/schemas/TaxSuccess'
+            default:
+              description: Unexpected error
+              content: 
+                application/json:
+                    schema:
+                       $ref: '#/components/schemas/Error'
+    /StateTaxes:
+        post:
+            description:  'Sample endpoint: Fills tax information based upon state'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TaxTable'
+            responses:
+                '200':
+                    description: 'Successfully found state tax'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TaxSuccess1'
+                default:
+                    description: Unexpected error, failed to find tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TaxError' 
+    /UpdateStateTaxes:
+      patch:
+        summary: Update the tax rate of a single state in the table
+        operationId: UpdateStateTaxes
+        tags: 
+          - updateTax
+        parameters:
+          - name: stateid
+            in: query
+            description: Update the tax rate for an individual state
+            required: true
+            schema:
+                type: integer
+                format: int32
+          - name: taxrate
+            in: query
+            description: The tax rate for the state
+            required: true
+            schema:
+                type: number
+        responses: 
+            '200': 
+                description: Successfully updated state tax
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TaxSuccess1'
+            default:
+                description: Unexpected error, failed to find tax
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TaxError'
+    /ItemDetails:
+        post:
+            summary: 'Sample endpoint: Fills product informatiopn for the item'
+            operationId: makeProduct
+            tags:
+                - product
+            parameters:
+                - name: id
+                  in: query
+                  description: ID of the product
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+                - name: itemName
+                  in: query
+                  description: The name of the product
+                  required: true
+                  schema:
+                    type: string
+                - name: price
+                  in: query
+                  description: The Price of the product
+                  required: true
+                  schema: 
+                    type: number
+                - name: discountID
+                  in: query
+                  description: The ID for associated discounts
+                  required: true
+                  schema:
+                    type: integer
+                    format: int32
+                - name: hasdiscount
+                  in: query
+                  required: true
+                  schema:
+                    type: boolean
+                - name: discountType
+                  in: query
+                  description: percentage or direct discount 
+                  required: false
+                  schema:
+                    type: string
+                - name: DiscountAmt
+                  in: query
+                  description: the percentage or dollar amount off
+                  required: false
+                  schema:
+                    type: number
+            responses:
+                '200':
+                    description: 'Successfully created product'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ItemSuccess'
+                default:
+                    description: Unexpected error, failed to create product
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ItemError' 
+components:
+  schemas:
+    Success:
+      type: object
+      required:
+        - id
+        - name
+        - price
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        #ADDED IN PRICE TO RETURN VALUES
+        price:
+          type: number
+        tag:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+#ADDED TAX SUCCESS
+    TaxSuccess:
+      type: object   
+      required: 
+        - CostwithTax
+      properties:
+        CostwithTax:
+          type: number
+    PriceObj:
+        type: object
+        required:
+            - productID
+            - objName
+            - price
+            - DiscountObjID
+        properties:
+            productID:
+                type: integer
+                format: int32
+            objName:
+                type: string
+            price:
+                type: number
+            DiscountObjID:
+                type: integer
+                format: int32
+    DiscountObj:
+        type: object
+        required:
+            - DiscountObjID
+            - DiscountType
+            - DiscountAmount
+        properties:
+            DiscountObjID: 
+                type: integer
+                format: int32
+            DiscountType:
+                type: string
+            DiscountAmount:
+                type: number
+    PriceReturn:
+        type: object
+        required:
+            - Price
+            - Discount
+        properties:
+            Price:
+                type: object
+                format: '#/components/schemas/PriceObj'
+            DiscountObj:
+                type: object
+                format: '#/components/schemas/DiscountObj'
+    MultiplePriceReturn:
+        type: array
+        required:
+            - Product
+        properties:
+            Product:
+                type: object
+                format: '#/components/schemas/PriceReturn'
+    TaxSuccess1:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string 
+    TaxError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    State:
+        type: object
+        required: 
+            - stateid
+            - taxrate
+        properties:
+            stateid:
+                type: integer
+                format: integer
+            taxrate:
+                type: number
+    TaxTable:
+        type: object
+        required:
+            - '#/components/schemas/State'
+    ItemError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    ItemSuccess:
+        type: object
+        required:
+            - code
+            - message
+        properties:
+            code:
+              type: integer
+              format: int32
+            message:
+                type: string
+
+# MOCK URL
+# https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io
