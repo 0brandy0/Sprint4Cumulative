@@ -1,0 +1,1275 @@
+{
+	"info": {
+		"_postman_id": "ab1316da-64ff-4364-a3a3-025be83606c7",
+		"name": "Team4 - Sprint_4-CumulativeAPIMock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "price",
+			"item": [
+				{
+					"name": "Get Price Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"price"
+							]
+						},
+						"description": "This query will get all products from the service, for caching. \n\nExpected Parameters:\n- None\n\nPre-Conditions\n- Products Should exist in the storage medium chosen (Database/etc.)\n\nSuccess Conditions:\n- If the query is a success, then the objects and their prices will be returned.\n\nFailure conditions:\n- If the query fails at any step, no prices will be returned. Instead, an error code and message will be relayed back in response. \n"
+					},
+					"response": [
+						{
+							"name": "Get Price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price",
+									"protocol": "https",
+									"host": [
+										"65ee0925-50c6-433a-9bb6-0a5c917397be",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"price"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "\"Product\": {\r\n    \"PriceObj\": {\r\n        \"productID\": \"100\",\r\n        \"objName\": \"IDK a shirt or something\",\r\n        \"price\": \"20.00\",\r\n        \"DiscountObjID\": \"2\"\r\n    },\r\n    \"DiscountObj\": {\r\n        \"DiscountID\": \"2\",\r\n        \"DiscountType\": \"Direct Discount\",\r\n        \"DiscountAmount\": \"5.00\"\r\n    }\r\n},\r\n\"Product\": {\r\n    \"PriceObj\": {\r\n        \"productID\": \"145\",\r\n        \"objName\": \"Intel Core i7-9700K\"\r\n        \"price\": \"299.99\",\r\n        \"DiscountObjID\": \"3\"\r\n    },\r\n\"DiscountObj\": {\r\n        \"DiscountID\": \"3\",\r\n        \"DiscountType\": \"No Discount\",\r\n        \"DiscountAmount\": \"0.0\"\r\n},\r\n\"Product\": {\r\n    \"PriceObj\": {\r\n        \"productID\": \"167\",\r\n        \"objName\": \"Seagate Expansion 1TB USB 3.0 External Hard Drive, Black\",\r\n        \"price\": \"49.00\",\r\n        \"DiscountObjID\": \"2\"\r\n    },\r\n    \"DiscountObj\": {\r\n        \"DiscountID\": \"2\",\r\n        \"DiscountType\": \"Percentage Discount\",\r\n        \"DiscountAmount\": \"0.06\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Get Price Failure",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price",
+									"protocol": "https",
+									"host": [
+										"65ee0925-50c6-433a-9bb6-0a5c917397be",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"price"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Dec 2020 20:01:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=ae3a1e3a11a4cb6c"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=2fa961102b826d94"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "119"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1606852922"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3ba-yA44pXtJ1OnFVhIDBJgI+HURv2Y\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 1,\r\n    \"message\": \"Products Dont Yet Exist\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Price of a Singular Product Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price/:productID?productID=123",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"price",
+								":productID"
+							],
+							"query": [
+								{
+									"key": "productID",
+									"value": "123"
+								}
+							],
+							"variable": [
+								{
+									"key": "productID",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Expected parameters:\n \n     - ProductID: This will be used to Identify the product to return the price for.\n\nPre-Conditions:\n \n     - The productID should be nonzero\n     - The productID should refer to an existing Product\n\nNotes: \n \n     - If the productID is invalid, the order request cannot be processed due to inability to \n          get the price of non-existent items\n\nSuccess conditions:\n \n     - If the request is to succeed, it will return a valid product Object\n\nFailure Conditions:\n\n     - If any step of the order processing is to fail, an error will be returned"
+					},
+					"response": [
+						{
+							"name": "Get Price of a Singular Product Failure",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price/:productID?productID=-1",
+									"protocol": "https",
+									"host": [
+										"65ee0925-50c6-433a-9bb6-0a5c917397be",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"price",
+										":productID"
+									],
+									"query": [
+										{
+											"key": "productID",
+											"value": "-1"
+										}
+									],
+									"variable": [
+										{
+											"key": "productID",
+											"value": "-1"
+										}
+									]
+								}
+							},
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 01 Dec 2020 20:01:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=f702faae0919a399"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=8b8ab93c6f80a03c"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "119"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1603227649"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b7-C26A969J0Sc2toeWTIduTpHcQvQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Products With ID the passed ID does not exist\"\n}"
+						},
+						{
+							"name": "Get Price of a Singular Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/price/:productID?productID=123",
+									"protocol": "https",
+									"host": [
+										"65ee0925-50c6-433a-9bb6-0a5c917397be",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"price",
+										":productID"
+									],
+									"query": [
+										{
+											"key": "productID",
+											"value": "123",
+											"description": {
+												"content": "(Required) ",
+												"type": "text/plain"
+											}
+										}
+									],
+									"variable": [
+										{
+											"key": "productID",
+											"value": "123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 20:59:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=f702faae0919a399"
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=8b8ab93c6f80a03c"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "119"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1603227649"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b7-C26A969J0Sc2toeWTIduTpHcQvQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"PriceObj\": {\r\n        \"objID\": \"123\",\r\n        \"objName\": \"NVidia RTX 3080 Founders Edition\",\r\n        \"price\": \"799.99\",\r\n        \"DiscountObjID\": \"1\"\r\n    },\r\n    \"DiscountObj\": {\r\n        \"DiscountID\": \"1\",\r\n        \"DiscountType\": \"Direct Discount\",\r\n        \"DiscountAmount\": \"0.01\"\r\n    }\r\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Simulate Calculating price for an order Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderPayment?userID=<integer>&ShippingAddr=<string>",
+					"protocol": "https",
+					"host": [
+						"65ee0925-50c6-433a-9bb6-0a5c917397be",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"orderPayment"
+					],
+					"query": [
+						{
+							"key": "userID",
+							"value": "<integer>",
+							"description": "(Required) the userID associated with the user and their affects"
+						},
+						{
+							"key": "ShippingAddr",
+							"value": "<string>",
+							"description": "(Required) the email associated with a user's paypal account"
+						}
+					]
+				},
+				"description": "Expected parameters:\n \n     - UserID: This will be used to specify the user and their associated cart for which they are   \n          paying\n \n     - ShippingAddr: The users shipping Address\n\nPre-Conditions:\n \n     - The address should be a valid United States Address\n     - The user should have a populated cart\n\nNotes: \n \n     - If any item in the cart is invalid, the order request cannot be processed due to inability to \n          get the price of non-existent items\n \n     - If the shipping address is out of the country, the request will fail.\n\nSuccess conditions:\n \n     - If the request is to succeed, it will return a valid order ID\n\nFailure Conditions:\n\n     - If any step of the order processing is to fail, an error will be returned"
+			},
+			"response": [
+				{
+					"name": "Simulate Calculating price for INVALID order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderPayment?userID=1&ShippingAddr=123 Not an Address, Fake, NO 000---",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"orderPayment"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "1",
+									"description": "(Required) the userID associated with the user and their affects"
+								},
+								{
+									"key": "ShippingAddr",
+									"value": "123 Not an Address, Fake, NO 000---",
+									"description": "(Required) the email associated with a user's paypal account"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n \"code\": 500,\r\n \"message\": \"Could not verify state for tax rate verification\"\r\n}"
+				},
+				{
+					"name": "Success - order was processed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderPayment?userID=710&ShippingAddr=123 Home St. Clemson SC 29630",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"orderPayment"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "710"
+								},
+								{
+									"key": "ShippingAddr",
+									"value": "123 Home St. Clemson SC 29630"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"id\": 2,\n \"name\": \"Order Confirmation\",\n \"price\": 56.23,\n \"tag\": \"Success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GetTaxCost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderTax?OrderCost=<integer>&ShippingAddr=<string>",
+					"protocol": "https",
+					"host": [
+						"65ee0925-50c6-433a-9bb6-0a5c917397be",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"orderTax"
+					],
+					"query": [
+						{
+							"key": "OrderCost",
+							"value": "<integer>"
+						},
+						{
+							"key": "ShippingAddr",
+							"value": "<string>"
+						}
+					]
+				},
+				"description": "Get the tax for an order based on state\n\nParameters:\n - Order Cost: The Cost of the items to be taxed\n - ShippingAddr: The address of the user to ship to, used to determine tax rate\n\nPre-Conditions:\n - Order Cost should be a non-negative value. \n - The Order cost should not have any non taxable services included\n - The Shipping address must be related to a state in the Tax table for tax rates to be found. \n\nReturns:\n - This will return the cost with tax formatted, as shown in the example requests. If unable to calculate, an error and message will be returned. "
+			},
+			"response": [
+				{
+					"name": "GetTaxCostInvalid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderTax?OrderCost=1.00&ShippingAddr=Westminster, London SW1A 1AA, United Kingdom",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"orderTax"
+							],
+							"query": [
+								{
+									"key": "OrderCost",
+									"value": "1.00"
+								},
+								{
+									"key": "ShippingAddr",
+									"value": "Westminster, London SW1A 1AA, United Kingdom"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 17 Nov 2020 19:55:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=762776c8d4dd66b2"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=f77f84f587a8baef"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1605642993"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-YoTwefNYfjJv/392x+kjtzo7lwY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 1,\n    \"message\": \"Invalid address. Could not find on tax table\"\n}"
+				},
+				{
+					"name": "GetTaxCost",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/orderTax?OrderCost=1.00&ShippingAddr=123 Home Lane, Clemson, South Carolina 29630",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"orderTax"
+							],
+							"query": [
+								{
+									"key": "OrderCost",
+									"value": "1.00"
+								},
+								{
+									"key": "ShippingAddr",
+									"value": "123 Home Lane, Clemson, South Carolina 29630"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"CostwithTax\": 1.07\n}"
+				}
+			]
+		},
+		{
+			"name": "Sample endpoint: Fills tax information based upon state",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"TaxTable\": {\r\n   \"Alabama\": {\r\n        \"StateID\": 1,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Alaska\": {\r\n        \"StateID\": 2,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Arizona\": {\r\n        \"StateID\": 3,\r\n        \"TaxRate\": 5.60\r\n        },\r\n    \"Arkansas\": {\r\n        \"StateID\": 4,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"California\": {\r\n        \"StateID\": 5,\r\n        \"TaxRate\": 7.25\r\n        },\r\n    \"Colorado\": {\r\n        \"StateID\": 6,\r\n        \"TaxRate\": 2.90\r\n        },\r\n    \"Conneticut\": {\r\n        \"StateID\": 7,\r\n        \"TaxRate\": 6.35\r\n        },\r\n    \"Delaware\": {\r\n        \"StateID\": 8,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Florida\": {\r\n        \"StateID\": 9,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Georgia\": {\r\n        \"StateID\": 10,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Hawaii\": {\r\n        \"StateID\": 11,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Idaho\": {\r\n        \"StateID\": 12,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Illinois\": {\r\n        \"StateID\": 13,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Indiana\": {\r\n        \"StateID\": 14,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Iowa\": {\r\n        \"StateID\": 15,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Kansas\": {\r\n        \"StateID\": 16,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"Kentucky\": {\r\n        \"StateID\": 17,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Lousiana\": {\r\n        \"StateID\": 18,\r\n        \"TaxRate\": 4.45\r\n        },\r\n    \"Maine\": {\r\n        \"StateID\": 19,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Maryland\": {\r\n        \"StateID\": 20,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Massachusetts\": {\r\n        \"StateID\": 21,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Michigan\": {\r\n        \"StateID\": 22,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Minnesota\": {\r\n        \"StateID\": 23,\r\n        \"TaxRate\": 6.875\r\n        },\r\n    \"Mississippi\": {\r\n        \"StateID\": 24,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Missouri\": {\r\n        \"StateID\": 25,\r\n        \"TaxRate\": 4.225\r\n        },\r\n    \"Montana\": {\r\n        \"StateID\": 26,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Nebraska\": {\r\n        \"StateID\": 27,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Nevada\": {\r\n        \"StateID\": 28,\r\n        \"TaxRate\": 6.85\r\n        },\r\n    \"New Hampshire\": {\r\n        \"StateID\": 29,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"New Jersey\": {\r\n        \"StateID\": 30,\r\n        \"TaxRate\": 6.625\r\n        },\r\n    \"New Mexico\": {\r\n        \"StateID\": 31,\r\n        \"TaxRate\": 5.125\r\n        },\r\n    \"New York\": {\r\n        \"StateID\": 32,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"New Carolina\": {\r\n        \"StateID\": 33,\r\n        \"TaxRate\": 4.75\r\n        },\r\n    \"New Dakota\": {\r\n        \"StateID\": 34,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Ohio\": {\r\n        \"StateID\": 35,\r\n        \"TaxRate\": 5.75\r\n        },\r\n    \"Oklahoma\": {\r\n        \"StateID\": 36,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Oregon\": {\r\n        \"StateID\": 37,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Pennsylvania\": {\r\n        \"StateID\": 38,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Rhode Island\": {\r\n        \"StateID\": 39,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"South Carolina\": {\r\n        \"StateID\": 40,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"South Dakota\": {\r\n        \"StateID\": 41,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Tennessee\": {\r\n        \"StateID\": 42,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Texas\": {\r\n        \"StateID\": 43,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Utah\": {\r\n        \"StateID\": 44,\r\n        \"TaxRate\": 6.10\r\n        },\r\n    \"Vermont\": {\r\n        \"StateID\": 45,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Virginia\": {\r\n        \"StateID\": 46,\r\n        \"TaxRate\": 5.30\r\n        },\r\n    \"Washington\": {\r\n        \"StateID\": 47,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"West Virginia\": {\r\n        \"StateID\": 48,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Wisconsin\": {\r\n        \"StateID\": 49,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Wyoming\": {\r\n        \"StateID\": 50,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Washington D.C.\": {\r\n        \"StateID\": 51,\r\n        \"TaxRate\": 6.00\r\n        }\r\n    } \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/StateTaxes",
+					"protocol": "https",
+					"host": [
+						"65ee0925-50c6-433a-9bb6-0a5c917397be",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"StateTaxes"
+					],
+					"query": [
+						{
+							"key": "stateid",
+							"value": "1",
+							"description": "(Required) id of the state",
+							"disabled": true
+						},
+						{
+							"key": "taxrate",
+							"value": "7",
+							"description": "(Required) tax rate for the corresponding state",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Load the tax information on a per state basis\n\nPre-conditions:\n    - The state tax rates should be loaded into a table with state ID correlating to the alphabetical enumeration of the states. \n\n    - The state tax rates should be non negative\n\nSuccess Conditions:\n    - In response, the service will reply with a code and message confirming the loading of the tax table.\n\nFailure Conditions:\n    - If any facet fails, the tax table will not be loaded at all. An error, code, and message will be returned."
+			},
+			"response": [
+				{
+					"name": "Successfully stored state tax (ex. 2)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"TaxTable\": {\r\n   \"Alabama\": {\r\n        \"StateID\": 1,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Alaska\": {\r\n        \"StateID\": 2,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Arizona\": {\r\n        \"StateID\": 3,\r\n        \"TaxRate\": 5.60\r\n        },\r\n    \"Arkansas\": {\r\n        \"StateID\": 4,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"California\": {\r\n        \"StateID\": 5,\r\n        \"TaxRate\": 7.25\r\n        },\r\n    \"Colorado\": {\r\n        \"StateID\": 6,\r\n        \"TaxRate\": 2.90\r\n        },\r\n    \"Conneticut\": {\r\n        \"StateID\": 7,\r\n        \"TaxRate\": 6.35\r\n        },\r\n    \"Delaware\": {\r\n        \"StateID\": 8,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Florida\": {\r\n        \"StateID\": 9,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Georgia\": {\r\n        \"StateID\": 10,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Hawaii\": {\r\n        \"StateID\": 11,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Idaho\": {\r\n        \"StateID\": 12,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Illinois\": {\r\n        \"StateID\": 13,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Indiana\": {\r\n        \"StateID\": 14,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Iowa\": {\r\n        \"StateID\": 15,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Kansas\": {\r\n        \"StateID\": 16,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"Kentucky\": {\r\n        \"StateID\": 17,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Lousiana\": {\r\n        \"StateID\": 18,\r\n        \"TaxRate\": 4.45\r\n        },\r\n    \"Maine\": {\r\n        \"StateID\": 19,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Maryland\": {\r\n        \"StateID\": 20,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Massachusetts\": {\r\n        \"StateID\": 21,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Michigan\": {\r\n        \"StateID\": 22,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Minnesota\": {\r\n        \"StateID\": 23,\r\n        \"TaxRate\": 6.875\r\n        },\r\n    \"Mississippi\": {\r\n        \"StateID\": 24,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Missouri\": {\r\n        \"StateID\": 25,\r\n        \"TaxRate\": 4.225\r\n        },\r\n    \"Montana\": {\r\n        \"StateID\": 26,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Nebraska\": {\r\n        \"StateID\": 27,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Nevada\": {\r\n        \"StateID\": 28,\r\n        \"TaxRate\": 6.85\r\n        },\r\n    \"New Hampshire\": {\r\n        \"StateID\": 29,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"New Jersey\": {\r\n        \"StateID\": 30,\r\n        \"TaxRate\": 6.625\r\n        },\r\n    \"New Mexico\": {\r\n        \"StateID\": 31,\r\n        \"TaxRate\": 5.125\r\n        },\r\n    \"New York\": {\r\n        \"StateID\": 32,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"New Carolina\": {\r\n        \"StateID\": 33,\r\n        \"TaxRate\": 4.75\r\n        },\r\n    \"New Dakota\": {\r\n        \"StateID\": 34,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Ohio\": {\r\n        \"StateID\": 35,\r\n        \"TaxRate\": 5.75\r\n        },\r\n    \"Oklahoma\": {\r\n        \"StateID\": 36,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Oregon\": {\r\n        \"StateID\": 37,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Pennsylvania\": {\r\n        \"StateID\": 38,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Rhode Island\": {\r\n        \"StateID\": 39,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"South Carolina\": {\r\n        \"StateID\": 40,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"South Dakota\": {\r\n        \"StateID\": 41,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Tennessee\": {\r\n        \"StateID\": 42,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Texas\": {\r\n        \"StateID\": 43,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Utah\": {\r\n        \"StateID\": 44,\r\n        \"TaxRate\": 6.10\r\n        },\r\n    \"Vermont\": {\r\n        \"StateID\": 45,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Virginia\": {\r\n        \"StateID\": 46,\r\n        \"TaxRate\": 5.30\r\n        },\r\n    \"Washington\": {\r\n        \"StateID\": 47,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"West Virginia\": {\r\n        \"StateID\": 48,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Wisconsin\": {\r\n        \"StateID\": 49,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Wyoming\": {\r\n        \"StateID\": 50,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Washington D.C.\": {\r\n        \"StateID\": 51,\r\n        \"TaxRate\": 6.00\r\n        }\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/StateTaxes",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"StateTaxes"
+							],
+							"query": [
+								{
+									"key": "stateid",
+									"value": "23",
+									"description": "(Required) id of the state",
+									"disabled": true
+								},
+								{
+									"key": "taxrate",
+									"value": "6.875",
+									"description": "(Required) tax rate for the corresponding state",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 19 Nov 2020 17:30:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "0683277fa40000e39a1b2a6000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=JB44VpF3IMm5meb2lFagytCk93hes9m8Q6pidGcrG486tzjC77Gfd7v15VwJngoYGStpwhg%2FM0HuC156CbW520dOvaFpUvWKyBSgaxFsnDqoL5R7\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "5f4ba845dad8e39a-ATL"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": -69712344,\n    \"message\": \"Successfully stored state tax to the corresponding item\"\n}"
+				},
+				{
+					"name": "Unexpected error, failed to store tax",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"TaxTable\": {\r\n   \"Alabama\": {\r\n        \"StateID\": 1,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Alaska\": {\r\n        \"StateID\": 2,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Arizona\": {\r\n        \"StateID\": 3,\r\n        \"TaxRate\": 5.60\r\n        },\r\n    \"Arkansas\": {\r\n        \"StateID\": 4,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"California\": {\r\n        \"StateID\": 5,\r\n        \"TaxRate\": 7.25\r\n        },\r\n    \"Colorado\": {\r\n        \"StateID\": 6,\r\n        \"TaxRate\": 2.90\r\n        },\r\n    \"Conneticut\": {\r\n        \"StateID\": 7,\r\n        \"TaxRate\": 6.35\r\n        },\r\n    \"Delaware\": {\r\n        \"StateID\": 8,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Florida\": {\r\n        \"StateID\": 9,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Georgia\": {\r\n        \"StateID\": 10,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Hawaii\": {\r\n        \"StateID\": 11,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Idaho\": {\r\n        \"StateID\": 12,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Illinois\": {\r\n        \"StateID\": 13,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Indiana\": {\r\n        \"StateID\": 14,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Iowa\": {\r\n        \"StateID\": 15,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Kansas\": {\r\n        \"StateID\": 16,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"Kentucky\": {\r\n        \"StateID\": 17,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Lousiana\": {\r\n        \"StateID\": 18,\r\n        \"TaxRate\": 4.45\r\n        },\r\n    \"Maine\": {\r\n        \"StateID\": 19,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Maryland\": {\r\n        \"StateID\": 20,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Massachusetts\": {\r\n        \"StateID\": 21,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Michigan\": {\r\n        \"StateID\": 22,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Minnesota\": {\r\n        \"StateID\": 23,\r\n        \"TaxRate\": 6.875\r\n        },\r\n    \"Mississippi\": {\r\n        \"StateID\": 24,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Missouri\": {\r\n        \"StateID\": 25,\r\n        \"TaxRate\": 4.225\r\n        },\r\n    \"Montana\": {\r\n        \"StateID\": 26,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Nebraska\": {\r\n        \"StateID\": 27,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Nevada\": {\r\n        \"StateID\": 28,\r\n        \"TaxRate\": 6.85\r\n        },\r\n    \"New Hampshire\": {\r\n        \"StateID\": 29,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"New Jersey\": {\r\n        \"StateID\": 30,\r\n        \"TaxRate\": 6.625\r\n        },\r\n    \"New Mexico\": {\r\n        \"StateID\": 31,\r\n        \"TaxRate\": 5.125\r\n        },\r\n    \"New York\": {\r\n        \"StateID\": 32,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"New Carolina\": {\r\n        \"StateID\": 33,\r\n        \"TaxRate\": 4.75\r\n        },\r\n    \"New Dakota\": {\r\n        \"StateID\": 34,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Ohio\": {\r\n        \"StateID\": 35,\r\n        \"TaxRate\": 5.75\r\n        },\r\n    \"Oklahoma\": {\r\n        \"StateID\": 36,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Oregon\": {\r\n        \"StateID\": 37,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Pennsylvania\": {\r\n        \"StateID\": 38,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Rhode Island\": {\r\n        \"StateID\": 39,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"South Carolina\": {\r\n        \"StateID\": 40,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"South Dakota\": {\r\n        \"StateID\": 41,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Tennessee\": {\r\n        \"StateID\": 42,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Texas\": {\r\n        \"StateID\": 43,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Utah\": {\r\n        \"StateID\": 44,\r\n        \"TaxRate\": 6.10\r\n        },\r\n    \"Vermont\": {\r\n        \"StateID\": 45,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Virginia\": {\r\n        \"StateID\": 46,\r\n        \"TaxRate\": 5.30\r\n        },\r\n    \"Washington\": {\r\n        \"StateID\": 47,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"West Virginia\": {\r\n        \"StateID\": 48,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Wisconsin\": {\r\n        \"StateID\": 49,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Wyoming\": {\r\n        \"StateID\": 50,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Washington D.C.\": {\r\n        \"StateID\": 51,\r\n        \"TaxRate\": 6.00\r\n        }\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/StateTaxes",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"StateTaxes"
+							],
+							"query": [
+								{
+									"key": "stateid",
+									"value": "81",
+									"disabled": true
+								},
+								{
+									"key": "taxrate",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": -69712344,\n \"message\": \"Failed to store tax\"\n}"
+				},
+				{
+					"name": "Successfully stored state tax (ex. 1)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"TaxTable\": {\r\n   \"Alabama\": {\r\n        \"StateID\": 1,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Alaska\": {\r\n        \"StateID\": 2,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Arizona\": {\r\n        \"StateID\": 3,\r\n        \"TaxRate\": 5.60\r\n        },\r\n    \"Arkansas\": {\r\n        \"StateID\": 4,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"California\": {\r\n        \"StateID\": 5,\r\n        \"TaxRate\": 7.25\r\n        },\r\n    \"Colorado\": {\r\n        \"StateID\": 6,\r\n        \"TaxRate\": 2.90\r\n        },\r\n    \"Conneticut\": {\r\n        \"StateID\": 7,\r\n        \"TaxRate\": 6.35\r\n        },\r\n    \"Delaware\": {\r\n        \"StateID\": 8,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Florida\": {\r\n        \"StateID\": 9,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Georgia\": {\r\n        \"StateID\": 10,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Hawaii\": {\r\n        \"StateID\": 11,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Idaho\": {\r\n        \"StateID\": 12,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Illinois\": {\r\n        \"StateID\": 13,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Indiana\": {\r\n        \"StateID\": 14,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Iowa\": {\r\n        \"StateID\": 15,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Kansas\": {\r\n        \"StateID\": 16,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"Kentucky\": {\r\n        \"StateID\": 17,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Lousiana\": {\r\n        \"StateID\": 18,\r\n        \"TaxRate\": 4.45\r\n        },\r\n    \"Maine\": {\r\n        \"StateID\": 19,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Maryland\": {\r\n        \"StateID\": 20,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Massachusetts\": {\r\n        \"StateID\": 21,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Michigan\": {\r\n        \"StateID\": 22,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Minnesota\": {\r\n        \"StateID\": 23,\r\n        \"TaxRate\": 6.875\r\n        },\r\n    \"Mississippi\": {\r\n        \"StateID\": 24,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Missouri\": {\r\n        \"StateID\": 25,\r\n        \"TaxRate\": 4.225\r\n        },\r\n    \"Montana\": {\r\n        \"StateID\": 26,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Nebraska\": {\r\n        \"StateID\": 27,\r\n        \"TaxRate\": 5.50\r\n        },\r\n    \"Nevada\": {\r\n        \"StateID\": 28,\r\n        \"TaxRate\": 6.85\r\n        },\r\n    \"New Hampshire\": {\r\n        \"StateID\": 29,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"New Jersey\": {\r\n        \"StateID\": 30,\r\n        \"TaxRate\": 6.625\r\n        },\r\n    \"New Mexico\": {\r\n        \"StateID\": 31,\r\n        \"TaxRate\": 5.125\r\n        },\r\n    \"New York\": {\r\n        \"StateID\": 32,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"New Carolina\": {\r\n        \"StateID\": 33,\r\n        \"TaxRate\": 4.75\r\n        },\r\n    \"New Dakota\": {\r\n        \"StateID\": 34,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Ohio\": {\r\n        \"StateID\": 35,\r\n        \"TaxRate\": 5.75\r\n        },\r\n    \"Oklahoma\": {\r\n        \"StateID\": 36,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Oregon\": {\r\n        \"StateID\": 37,\r\n        \"TaxRate\": 0.00\r\n        },\r\n    \"Pennsylvania\": {\r\n        \"StateID\": 38,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Rhode Island\": {\r\n        \"StateID\": 39,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"South Carolina\": {\r\n        \"StateID\": 40,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"South Dakota\": {\r\n        \"StateID\": 41,\r\n        \"TaxRate\": 4.50\r\n        },\r\n    \"Tennessee\": {\r\n        \"StateID\": 42,\r\n        \"TaxRate\": 7.00\r\n        },\r\n    \"Texas\": {\r\n        \"StateID\": 43,\r\n        \"TaxRate\": 6.25\r\n        },\r\n    \"Utah\": {\r\n        \"StateID\": 44,\r\n        \"TaxRate\": 6.10\r\n        },\r\n    \"Vermont\": {\r\n        \"StateID\": 45,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Virginia\": {\r\n        \"StateID\": 46,\r\n        \"TaxRate\": 5.30\r\n        },\r\n    \"Washington\": {\r\n        \"StateID\": 47,\r\n        \"TaxRate\": 6.50\r\n        },\r\n    \"West Virginia\": {\r\n        \"StateID\": 48,\r\n        \"TaxRate\": 6.00\r\n        },\r\n    \"Wisconsin\": {\r\n        \"StateID\": 49,\r\n        \"TaxRate\": 5.00\r\n        },\r\n    \"Wyoming\": {\r\n        \"StateID\": 50,\r\n        \"TaxRate\": 4.00\r\n        },\r\n    \"Washington D.C.\": {\r\n        \"StateID\": 51,\r\n        \"TaxRate\": 6.00\r\n        }\r\n    } \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/StateTaxes",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"StateTaxes"
+							],
+							"query": [
+								{
+									"key": "stateid",
+									"value": "1",
+									"description": "(Required) id of the state",
+									"disabled": true
+								},
+								{
+									"key": "taxrate",
+									"value": "4",
+									"description": "(Required) tax rate for the corresponding state",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": -69712344,\n \"message\": \"Successfully stored state tax to the corresponding item\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the tax rate of a single state in the table",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/UpdateStateTaxes?stateid=<integer>&taxrate=<number>",
+					"protocol": "https",
+					"host": [
+						"65ee0925-50c6-433a-9bb6-0a5c917397be",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"UpdateStateTaxes"
+					],
+					"query": [
+						{
+							"key": "stateid",
+							"value": "<integer>",
+							"description": "(Required) Update the tax rate for an individual state"
+						},
+						{
+							"key": "taxrate",
+							"value": "<number>",
+							"description": "(Required) The tax rate for the state"
+						}
+					]
+				},
+				"description": "Similar to loading the previous tax table, this Patch request updates a single entry in the table.\n\nParameters:\n     - StateID - The ID for the state you wish to Update\n     - TaxRate - The new tax rate for the system to update to using\n\nPre-Conditions:\n     - The StateID should refer to the state's position as it appears in alphabetical Order\n     - the Tax Rate should be nonnegative"
+			},
+			"response": [
+				{
+					"name": "Unexpected error, failed to find tax",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/UpdateStateTaxes?stateid=<integer>&taxrate=<number>",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"UpdateStateTaxes"
+							],
+							"query": [
+								{
+									"key": "stateid",
+									"value": "<integer>"
+								},
+								{
+									"key": "taxrate",
+									"value": "<number>"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": 75333453,\n \"message\": \"anim in ipsum pari\"\n}"
+				},
+				{
+					"name": "Successfully updated state tax",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/UpdateStateTaxes?stateid=<integer>&taxrate=<number>",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"UpdateStateTaxes"
+							],
+							"query": [
+								{
+									"key": "stateid",
+									"value": "<integer>"
+								},
+								{
+									"key": "taxrate",
+									"value": "<number>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": 75333453,\n \"message\": \"anim in ipsum pari\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Sample endpoint: Fills product information for the item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{url}}",
+						"value": "{{url}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/ItemDetails?id=1&itemName=Ryzen55650X&price=399.99&discountID=1&hasdiscount=true&discountType=DirectDiscount&DiscountAmt=50.00",
+					"protocol": "https",
+					"host": [
+						"65ee0925-50c6-433a-9bb6-0a5c917397be",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"ItemDetails"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "(Required) ID of the product"
+						},
+						{
+							"key": "itemName",
+							"value": "Ryzen55650X",
+							"description": "(Required) The name of the product"
+						},
+						{
+							"key": "price",
+							"value": "399.99",
+							"description": "(Required) The Price of the product"
+						},
+						{
+							"key": "discountID",
+							"value": "1",
+							"description": "(Required) The ID for associated discounts"
+						},
+						{
+							"key": "hasdiscount",
+							"value": "true",
+							"description": "(Required) "
+						},
+						{
+							"key": "discountType",
+							"value": "DirectDiscount",
+							"description": "percentage or direct discount"
+						},
+						{
+							"key": "DiscountAmt",
+							"value": "50.00",
+							"description": "the percentage or dollar amount off"
+						}
+					]
+				},
+				"description": "parameters:\n-id: id of the product\n- itemName: used to identify the object\n- price: the price of the item\n- discountID: used to identify the discount that will be applied to the item price\n-hasdiscount: identify if there is a discount for the item or not\n-disocountType: the type of discount\ndiscountAnt: the percentage or dollar amount off\n\nPre Conditions: \n-the admin should have information about the product and the discount that they are trying to find or add information about \n- this will allow new items with discounted prices to be added\n\nNotes:\n- if the item or discount is unknown or invalid it will not be able to process the information \n"
+			},
+			"response": [
+				{
+					"name": "Fail adding a product/pricing information",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{url}}",
+								"value": "{{url}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/ItemDetails?id=-1&itemName=inteli9&price=299.99&discountID=1&hasdiscount=true&discountType=DirectDiscount&DiscountAmt=-1.00",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"ItemDetails"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "-1",
+									"description": "(Required) ID of the product"
+								},
+								{
+									"key": "itemName",
+									"value": "inteli9",
+									"description": "(Required) The name of the product"
+								},
+								{
+									"key": "price",
+									"value": "299.99",
+									"description": "(Required) The Price of the product"
+								},
+								{
+									"key": "discountID",
+									"value": "1",
+									"description": "(Required) The ID for associated discounts"
+								},
+								{
+									"key": "hasdiscount",
+									"value": "true",
+									"description": "(Required) "
+								},
+								{
+									"key": "discountType",
+									"value": "DirectDiscount",
+									"description": "percentage or direct discount"
+								},
+								{
+									"key": "DiscountAmt",
+									"value": "-1.00",
+									"description": "the percentage or dollar amount off"
+								},
+								{
+									"key": "{{url}}",
+									"value": "https://f9a5158a-5b3d-44f2-908c-72610768334f.mock.pstmn.io",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Successfully created product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://65ee0925-50c6-433a-9bb6-0a5c917397be.mock.pstmn.io/ItemDetails?id=1&itemName=Ryzen55650X&price=399.99&discountID=1&hasdiscount=true&discountType=DirectDiscount&DiscountAmt=50.00",
+							"protocol": "https",
+							"host": [
+								"65ee0925-50c6-433a-9bb6-0a5c917397be",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"ItemDetails"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "itemName",
+									"value": "Ryzen55650X"
+								},
+								{
+									"key": "price",
+									"value": "399.99"
+								},
+								{
+									"key": "discountID",
+									"value": "1"
+								},
+								{
+									"key": "hasdiscount",
+									"value": "true"
+								},
+								{
+									"key": "discountType",
+									"value": "DirectDiscount"
+								},
+								{
+									"key": "DiscountAmt",
+									"value": "50.00"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": 200,\n \"message\": \"Successfully created product with specified discount info\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "www.CUsports.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
